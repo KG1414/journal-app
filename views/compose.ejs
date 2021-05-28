@@ -1,15 +1,38 @@
 <%- include("partials/header"); -%> 
 
-<h1>Compose</h1>
+<h1 class="compose-header">Compose</h1>
 
 <form class="" action="/compose" method="POST">
-    <div class="">
-        <label for="" class="form-label">Title</label>
-        <input type="text" title="Title" name="postTitle">
-        <label for="">Post</label>
-        <input type="text" title="Post" name="post">
-        <button type="submit">Publish</button>
-    </div>
+   
+        <div class="mb-3">
+            <label for="titleInput" class="form-label">Title</label>
+            <input 
+                type="text" 
+                title="Title" 
+                name="postTitle" 
+                class="form-control"
+                autocomplete="off"
+                autofocus="true">
+        </div>
+
+        <div class="mb-3">
+            <label for="postInput" class="form-label">Post</label>
+            <div class="input-height">
+            <textarea 
+                class="form-control post-textbox" 
+                type="text" 
+                title="Post" 
+                name="post"
+                autocomplete="off" >
+            </textarea>
+                
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </div>
+   
 </form>
 
 <%- include("partials/footer"); -%> 

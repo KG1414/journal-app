@@ -7,10 +7,19 @@
     line-height: 20px;
 }
 
+.compose-header {
+    padding-bottom: 20px;
+}
+
+.post-textbox {
+    height: 140px;
+}
+
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+
 .navbar {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -22,6 +31,10 @@
 }
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
+}
+
+.nav-item {
+    padding: 0 10px;
 }
 
 .footer-padding {
