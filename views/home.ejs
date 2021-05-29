@@ -3,9 +3,17 @@
 <div class="text-area">
 
     <h1>Home</h1>
+    <p> <%= homeContent %> </p>
 
-<p> <%= homeContent %> </p>
+   
+
+    <% posts.forEach(function(post) { %>
+        <h1> <%= post.postTitle %> </h1> 
+        <p> <%= post.postBody %></p>
+    <% }) %>
+   
     
 </div>
 
 <%- include("partials/footer.ejs"); -%>
+
