@@ -1,6 +1,7 @@
 //jshint esversion:6
 const express = require("express");
 const ejs = require("ejs");
+const _ = require("lodash")
 
 const app = express();
 
@@ -19,7 +20,22 @@ app.get("/", function (req, res) {
     homeContent: homeStartingContent,
     posts: posts
   });
-})
+});
+
+app.get("/posts/:postName", function (req, res) {
+  const requestedTitle = _.lowerCase(req.params.postName);
+
+  posts.forEach(function (post) {
+    const storedTitle = _.lowerCase(post.postTitle);
+
+    if (requestedTitle === storedTitle) {
+      console.log("It's a match!" + requestedTitle + "" + storedTitle);
+    } else {
+      console.log("Not a match")
+    }
+  });
+
+});
 
 app.get("/about", function (req, res) {
   res.render("about", { about: aboutContent });
