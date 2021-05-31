@@ -1,7 +1,8 @@
 //jshint esversion:6
 const express = require("express");
 const ejs = require("ejs");
-const _ = require("lodash")
+const _ = require("lodash");
+// const { title } = require("process");
 
 const app = express();
 
@@ -20,21 +21,6 @@ app.get("/", function (req, res) {
     homeContent: homeStartingContent,
     posts: posts
   });
-});
-
-app.get("/posts/:postName", function (req, res) {
-  const requestedTitle = _.lowerCase(req.params.postName);
-
-  posts.forEach(function (post) {
-    const storedTitle = _.lowerCase(post.postTitle);
-
-    if (requestedTitle === storedTitle) {
-      console.log("It's a match!" + requestedTitle + "" + storedTitle);
-    } else {
-      console.log("Not a match")
-    }
-  });
-
 });
 
 app.get("/about", function (req, res) {
@@ -56,7 +42,23 @@ app.post("/compose", function (req, res) {
   const post = { postTitle: title, postBody: body };
   posts.push(post)
   res.redirect("/");
-})
+});
+
+app.get("/posts/:postName", function (req, res) {
+  const requestedTitle = _.lowerCase(req.params.postName);
+
+  posts.forEach(function (post) {
+    const storedTitle = _.lowerCase(post.postTitle);
+
+    if (requestedTitle === storedTitle) {
+      res.render("post", {
+        title: post.postTitle,
+        content: post.postBody
+      });
+    }
+  });
+
+});
 
 app.listen(3000, function () {
   console.log("Server started on port 3000");
