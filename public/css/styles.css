@@ -19,6 +19,10 @@
     padding-bottom: 70px;
 }
 
+a.readMore {
+    text-decoration: none;
+}
+
 /* Navbar Section */
 #nav-title {
     color: #6c757d;

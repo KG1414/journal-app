@@ -5,12 +5,16 @@
     <h1>Home</h1>
     <p> <%= homeContent %> </p>
 
-   
-
     <% posts.forEach(function(post) { %>
+
         <h1> <%= post.postTitle %> </h1> 
-        <p> <%= post.postBody.split(" ").splice(0, 25).join(" ") %>...</p>
-    <% }) %>
+        <% if(post.postBody.length > 99) { %> 
+        <p> <%= post.postBody.substring(0, 100); %>... 
+            <a class="readMore" href="/posts/<%= post.postTitle %>">Read more</a></p>
+       <% } else { %>
+        <p> <%= post.postBody %> </p>
+      <% }; %>
+    <% }); %>
    
     
 </div>
