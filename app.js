@@ -16,6 +16,11 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 let posts = [];
 
+posts.forEach(function (post) {
+  const storedPost = post.postBody;
+  const truncatedPost = storedPost.split('').splice(0, 10).join(" ");
+});
+
 app.get("/", function (req, res) {
   res.render("home", {
     homeContent: homeStartingContent,
