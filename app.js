@@ -16,10 +16,10 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 
 let posts = [];
 
-posts.forEach(function (post) {
-  const storedPost = post.postBody;
-  const truncatedPost = storedPost.split('').splice(0, 10).join(" ");
-});
+// posts.forEach(function (post) {
+//   const storedPost = post.postBody;
+//   const truncatedPost = storedPost.split('').splice(0, 10).join(" ");  //splits into 10 words, rather than 100 characters as it does from home.ejs
+// });
 
 app.get("/", function (req, res) {
   res.render("home", {
