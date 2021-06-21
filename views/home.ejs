@@ -7,12 +7,12 @@
 
     <% posts.forEach(function(post) { %>
 
-        <h1> <%= post.postTitle %> </h1> 
-        <% if(post.postBody.length > 99) { %> 
-        <p> <%= post.postBody.substring(0, 100); %>... 
-            <a class="readMore" href="/posts/<%= post.postTitle %>">Read more</a></p>
+        <h1> <%= post.title %> </h1> 
+        <% if(post.body.length > 99) { %> 
+        <p> <%= post.body.substring(0, 100); %>... 
+            <a class="readMore" href="/posts/<%= post.title %>">Read more</a></p>
        <% } else { %>
-        <p> <%= post.postBody %> </p>
+        <p> <%= post.body %> </p>
       <% }; %>
     <% }); %>
    
