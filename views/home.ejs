@@ -3,16 +3,16 @@
 <div class="text-area">
 
     <h1>Home</h1>
-    <p> <%= homeContent %> </p>
+    <p><%=homeContent%></p>
 
     <% posts.forEach(function(post) { %>
 
-        <h1> <%= post.title %> </h1> 
+        <h1><%=post.title%></h1> 
         <% if(post.body.length > 99) { %> 
-        <p> <%= post.body.substring(0, 100); %>... 
-            <a class="readMore" href="/posts/<%= post.title %>">Read more</a></p>
+        <p><%=post.body.substring(0, 100);%>... 
+            <a class="readMore" href="/posts/<%=post._id%>">Read more</a></p>
        <% } else { %>
-        <p> <%= post.body %> </p>
+        <p><%=post.body%></p>
       <% }; %>
     <% }); %>
    
