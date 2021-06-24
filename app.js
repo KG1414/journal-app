@@ -81,14 +81,28 @@ app.get("/posts/:postId", function (req, res) {
 
   const requestedPostId = req.params.postId;
 
-  Journal.findOne({ _id: requestedPostId }, function (err, journals) {
-
-    res.render("post", {
-      title: journals?.title,
-      body: journals?.body
-    });
+  Journal.findById(requestedPostId, (err, foundJournals) => {
+    if (err) {
+      console.log(err + " error occured");
+    } else {
+      console.log("These are the found journals " + foundJournals);
+      res.render("post", {
+        title: foundJournals.title,
+        body: foundJournals.body
+      })
+    }
   });
 });
+
+// const requestedPostId = req.params.postId;
+
+// Journal.findOne({ "_id": requestedPostId }, function (err, journals) {
+
+//   res.render("post", {
+//     title: journals?.title,
+//     body: journals?.body
+//   });
+// });
 
 
 app.listen(process.env.PORT || port, function () {
