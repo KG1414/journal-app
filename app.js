@@ -1,7 +1,7 @@
 //jshint esversion:6
 const express = require("express");
 const ejs = require("ejs");
-// const _ = require("lodash");
+var _ = require("lodash");
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -77,9 +77,10 @@ app.post("/compose", function (req, res) {
   // posts.push(post);
 });
 
-app.get("/posts/:postId", function (req, res) {
+app.get("/posts/:journalTitle/:_id", function (req, res) {
 
-  const requestedPostId = req.params.postId;
+  const requestedPostId = req.params._id;
+  // const reqJournalTitle = _.capitalize(req.params.journalTitle);
 
   Journal.findById(requestedPostId, (err, foundJournals) => {
     if (err) {
